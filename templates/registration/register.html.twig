@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    {% include "__fragments/nav.html.twig" %}
+    
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+    <!-- Content -->
+    <div class="bg-soft-success">
+    <div class="container content-space-1 content-space-t-md-1">
+        <div class="mx-auto" style="max-width: 30rem;">
+        <!-- Card -->
+        <div class="card card-lg zi-2">
+            <!-- Header -->
+            <div class="card-header text-center">
+            <h4 class="card-title">Créer un compte</h4>
+            <p class="card-text">Vous avez déjà un compte? <a class="link" href="{{path('app_login')}} ">Connectez-vous</a></p>
+            </div>
+            <!-- End Header -->
+
+            <!-- Card Body -->
+            <div class="card-body mt-0 mb-0">
+            <form>
+                <div class="row">
+                <div class="col-sm-6 mb-4 mb-sm-0">
+                    <!-- Form -->
+                    <div class="mb-4">
+                    <label class="form-label" for="signupFormFirstName">Prenom</label>
+                    {{ form_row(registrationForm.prenom) }}
+                    <span class="invalid-feedback">Entrer un prenom svp</span>
+                    </div>
+                    <!-- End Form -->
+                </div>
+
+                <div class="col-sm-6">
+                    <!-- Form -->
+                    <div class="mb-4">
+                    <label class="form-label" for="signupFormLasttName">Nom</label>
+                    {{ form_row(registrationForm.nom) }}
+                    <span class="invalid-feedback">Entrer un nom svp.</span>
+                    </div>
+                    <!-- End Form -->
+                </div>
+                </div>
+                <!-- End Form -->
+
+                <!-- Form -->
+                <div class="mb-4">
+                <label class="form-label" for="signupFormEmail">Email</label>
+                {{ form_row(registrationForm.email) }}
+                <span class="invalid-feedback">Please enter a valid email address.</span>
+                </div>
+                <!-- End Form -->
+
+                <!-- Form -->
+                <div class="mb-4">
+                <label class="form-label" for="signupFormPassword">Mot de passe </label>
+
+                <div class="input-group input-group-merge">
+                    {{ form_widget(registrationForm.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': '8+ characters required', 'autocomplete': 'new-password'} })  }}
+                </div>
+                <span class="invalid-feedback">Your password is invalid. Please try again.</span>
+                </div>
+                <!-- End Form -->
+
+                <!-- Form -->
+                <div class="mb-4">
+                <label class="form-label" for="signupFormConfirmPassword">Confirmer Mot de passe</label>
+
+                <div class="input-group input-group-merge">
+                    {{ form_widget(registrationForm.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': '8+ characters required', 'autocomplete': 'new-password'} }) }}
+                </div>
+                <span class="invalid-feedback">Password does not match the confirm password.</span>
+                </div>
+                <!-- End Form -->
+
+                <!-- Checkbox -->
+                <div class="form-check mb-4">
+                {{ form_row(registrationForm.agreeTerms) }}
+                <label class="form-check-label" for="signupFormTermsCheck"> J'accepte les <a href="#">Termes et Conditions</a></label>
+                <span class="invalid-feedback">Please accept our Terms and Conditions.</span>
+                </div>
+                <!-- End Checkbox -->
+
+                <div class="d-grid mb-4">
+                <button type="submit" class="btn btn-primary btn-lg">S'inscrire</button>
+                </div>
+            </form>
+    {{ form_end(registrationForm) }}
+            </div>
+            <!-- End Card Body -->
+        </div>
+        <!-- End Card -->
+        </div>
+    </div>
+    </div>
+    <!-- End Content -->
+
+<!-- Shape -->
+<div class="shape-container">
+  <div class="shape shape-bottom zi-1">
+    <svg viewBox="0 0 3000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 1000V583.723L3000 0V1000H0Z" fill="#fff"/>
+    </svg>
+  </div>
+</div>
+<!-- End Shape -->
+
+        {# <label class="form-label" for="signupFormFirstName">First name</label>
+        {{ form_row(registrationForm.prenom) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }} #}
+
+        {# <button type="submit" class="btn">Register</button> #}
+{% endblock %}

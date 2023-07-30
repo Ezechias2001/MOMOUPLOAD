@@ -1,0 +1,90 @@
+<!-- ========== HEADER ========== -->
+<header id="header" class="navbar navbar-expand-lg navbar-light navbar-end bg-white">
+  <div class="container">
+    <nav class="js-mega-menu navbar-nav-wrap">
+      <!-- Default Logo -->
+      <a class="navbar-brand" href="#" aria-label="Space">
+        <img class="navbar-brand-logo" src="{{asset('assets/svg/logos/logo.svg')}}" alt="Image Description">
+      </a>
+      <!-- End Default Logo -->
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-default">
+          <i class="bi-list"></i>
+        </span>
+        <span class="navbar-toggler-toggled">
+          <i class="bi-x"></i>
+        </span>
+      </button>
+      <!-- End Toggler -->
+
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <!-- Landings -->
+          
+          <li class="hs-has-mega-menu nav-item"
+              data-hs-mega-menu-item-options='{
+                "desktop": {
+                  "maxWidth": "30rem"
+                }
+              }'>
+            <a  class="hs-mega-menu-invoker nav-link" aria-current="page" href=" {{path('app_home')}}" role="button">Accueil</a>
+          </li>
+          <!-- End Landings -->
+          <li class="hs-has-mega-menu nav-item"
+              data-hs-mega-menu-item-options='{
+                "desktop": {
+                  "maxWidth": "30rem"
+                }
+              }'>
+            <a  class="hs-mega-menu-invoker nav-link" aria-current="page" href=" {{path('app_tableau')}}" role="button">Tableau de bord</a>
+          </li>
+          <!-- End Landings --><li class="hs-has-mega-menu nav-item"
+              data-hs-mega-menu-item-options='{
+                "desktop": {
+                  "maxWidth": "30rem"
+                }
+              }'>
+            <a  class="hs-mega-menu-invoker nav-link" aria-current="page" href="#" role="button">A propos</a>
+          </li>
+          <!-- End Landings -->
+          
+          
+
+          <!-- End Docs -->
+
+          <li class="nav-divider"></li>
+
+          <!-- Log in -->
+          <li class="nav-item">
+            <a class="btn btn-ghost-secondary btn-no-focus me-2 me-lg-0" href="{{path('app_register')}}"  role="button">Inscription</a>
+            <a class=" d-lg-none btn btn-primary" role="button" >
+              <i class="bi-person-circle me-1"></i> Inscription
+            </a>
+          </li>
+          <!-- End Log in -->
+          {% if app.user %}
+            <!-- Sign up -->
+            <li class="nav-item">
+              <a class="d-none d-lg-inline-block btn btn-primary" href="{{path('app_logout')}}" role="button">
+                <i class="bi-person-circle me-1"></i> Se Deconnecter
+              </a>
+            </li>
+          {% else %}
+            <!-- Sign up -->
+            <li class="nav-item">
+              <a class="d-none d-lg-inline-block btn btn-primary" href="{{path('app_login')}}" role="button">
+                <i class="bi-person-circle me-1"></i> Connexion
+              </a>
+            </li>
+          {% endif %}
+          <!-- End Sign up -->
+        </ul>
+      </div>
+      <!-- End Collapse -->
+    </nav>
+  </div>
+</header>
+<!-- ========== END HEADER ========== -->

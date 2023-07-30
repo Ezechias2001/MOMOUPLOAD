@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Accueil {% endblock %}
+
+{% block body %}
+    {% include "__fragments/nav.html.twig" %}
+<!-- Hero -->
+<div class="bg-primary-dark position-relative overflow-hidden">
+  <div class="container content-space-2">
+    <div class="row justify-content-center align-items-lg-center">
+      <div class="col-md-8 col-lg-6 mb-7 mb-lg-0">
+        <!-- Heading -->
+        <div class="pe-lg-3 mb-7">
+          <h1 class="display-3 text-white mb-3 mb-md-5">Soumettez une image
+             <span class="text-warning" id="typed"></span>
+          </h1>
+          <div>
+        </div>
+          <p class="lead text-white-70">Paiement effectué ? Soumettez la capture du message de paiement ici pour vérification...</p>
+        </div>
+        <!-- End Heading -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-md-8 col-lg-6">
+        <div class="ps-lg-5">
+          <!-- Card -->
+          <div class="card card-lg">
+            <div class="card-body">
+              <div class="row align-items-sm-center mb-3">
+                <div class="col-sm-auto order-sm-2 mb-3 mb-sm-0">
+                  <img class="avatar avatar-xxl avatar-4x3" src=" {{asset('assets/svg/illustrations/oc-sending.svg')}} " alt="Image Description">
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm">
+                  <h5 class="card-title">Envoyer une image de vérification</h5>
+                  <p class="card-text">Faites vérifier votre payement en chargeant ici, l'image de la capture.</p>
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+              {{ form_start(form) }}
+              <!-- Form -->
+              <div class="mb-4">
+                  <label>Choississez un réseau</label>
+                  {{form_widget(form.reseau)}} 
+                 <div class="mt-2"> 
+                  <label class="form-label" for="registerEmail">Uploader la capture</label>
+                  {{ form_widget(form.url) }}
+                </div> 
+                </div>
+              <!-- End Form -->
+
+              <div class="d-grid text-center">
+                  <button type="submit" class="btn btn-primary btn-lg">Soumettre</button>
+              </div>
+
+              {{ form_end(form) }}
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+
+  </div>
+
+
+  <!-- Background Shapes -->
+  <div class="position-absolute top-0 end-0">
+    <img src="../assets/svg/components/shape-3-soft-light.svg" alt="SVG" width="500">
+  </div>
+  <div class="position-absolute bottom-0 end-0 me-10">
+    <img src="../assets/svg/components/shape-1-soft-light.svg" alt="SVG" width="250">
+  </div>
+  <div class="position-absolute bottom-0 start-0">
+    <img src="../assets/svg/components/shape-2-soft-light.svg" alt="SVG" width="400">
+  </div>
+  <!-- End Background Shapes -->
+</div>
+<!-- End Hero -->
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier si le message Flash "success" est présent
+            {% if app.request.hasPreviousSession() and app.request.session.flashBag.has('success') %}
+                // Afficher le modal SweetAlert après le chargement de la page
+                Swal.fire({
+                    title: 'Succès !',
+                    text: "L'image a été soumis avec succès.",
+                    icon: 'success',
+                    confirmButtonColor : '#008060'
+                });
+            {% endif %}
+
+            // Supprimer le message Flash "success" pour qu'il ne soit pas affiché à nouveau après un rechargement de page
+            {% if app.request.hasPreviousSession() %}
+                {% set flashMessages = app.request.session.flashBag.get('success') %}
+            {% endif %}
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier si le message Flash "success" est présent
+            {% if app.request.hasPreviousSession() and app.request.session.flashBag.has('error') %}
+                // Afficher le modal SweetAlert après le chargement de la page
+                Swal.fire({
+                  icon: 'error',
+                  title: "Rogner l'image",
+                  text: "Couper l'image de telle sorte que seul le contenu du message ne soit visibe",
+                })
+            {% endif %}
+
+            // Supprimer le message Flash "success" pour qu'il ne soit pas affiché à nouveau après un rechargement de page
+            {% if app.request.hasPreviousSession() %}
+                {% set flashMessages = app.request.session.flashBag.get('error') %}
+            {% endif %}
+        });
+    </script>
+{% endblock %}

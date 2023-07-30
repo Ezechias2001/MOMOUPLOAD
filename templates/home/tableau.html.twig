@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Dashboard {% endblock %}
+
+
+{% block body %}
+    {% include "__fragments/nav.html.twig" %}
+    <!-- Hero -->
+    <div class="bg-soft-primary-light">
+      <div class="container content-space-2 content-space-md-2">
+        <div class="row justify-content-center align-items-lg-center mb-2">
+          <div class="col-md-12 mb-3 mb-md-0">
+            <div class="mb-0">
+              <h4 class="display-6 text-primary">Tableau de bord </h4>      
+                <!-- Card -->
+                <div class="card mb-7">
+                    <div class="card-body">
+                        <!-- Table -->
+                        <table id="myTable" class="table table-striped table-sm">
+                            <thead class="table-stripped">
+                                <tr> 
+                                <th class="" scope="col">N*</th>
+                                <th class="" scope="col">Nom</th>
+                                <th class="" scope="col">Montant</th>
+                                <th class="" scope="col">Numero</th>
+                                <th class="" scope="col">Date</th>
+                                <th class="" scope="col">Reference</th>
+                                <th class="" scope="col">Aperçu</th>
+                                <th scope="col">Actions</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for image in images %}
+                              
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    <td>{{ image.nom }}</td>
+                                    <td>{{ image.montant }}</td>
+                                    <td>{{ image.numero }}</td>
+                                    <td>{{ image.date }}</td>
+                                    <td>{{ image.reference }}</td>
+                                    <td> 
+                                        <a href="{{asset(image.url)}}"><img class="img-fluid" src="{{ asset(image.url) }}" alt="Image Description" style="height: 70px;"> </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('app_image_show', {'id': image.id}) }}">Afficher</a>
+                                        <a href="{{ path('app_image_edit', {'id': image.id}) }}">Modifier</a>
+                                    </td>
+                                </tr>        
+                            {% else %}
+                                <tr>
+                                    <td colspan="3">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <!-- End Table -->       
+                    </div>
+                </div>
+                <!-- End Card -->
+            </div>
+          </div>
+          <!-- End Col -->
+        {# 
+          <div class="col-md-4  col-md-4">
+            <img class="img-fluid" src=" {{asset('assets/svg/illustrations/oc-money-profits.svg')}} " alt="Image Description">
+          </div> #}
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+      </div>
+    </div>
+    <!-- End Hero -->
+
+    
+
+{% endblock %}

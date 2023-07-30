@@ -1,16 +1,152 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="en" dir="">
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<!-- Mirrored from htmlstream.com/preview/space-v2.3.1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Jul 2023 09:19:48 GMT -->
+<head>
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title --><title>
+    {% block title %}
+        Corporate | Space 
+    {% endblock %}</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico">
+  {% block stylesheets %}
+  {% endblock %}
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="{{asset('assets/css/vendor.min.css')}} ">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+
+  <!-- CSS Space Template -->
+  <link rel="stylesheet" href="{{asset('assets/css/theme.minc619.css?v=1.0')}}">
+  
+  <!-- CSS Space Template -->
+  {{ encore_entry_link_tags('app') }} 
+</head>
+
+<body>
+
+
+    {% block body %}
+    {% endblock %}
+
+  <!-- JS Implementing Plugins -->
+  <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+
+  <!-- JS Space -->
+  <script src="{{asset('assets/js/theme.min.js')}}"></script>
+
+   
+   <!-- JS Space -->
+  <script defer src="{{asset('build/app.js')}}"></script> 
+
+
+  <!-- JS Plugins Init. -->
+  <script>
+      (function() {
+        // INITIALIZATION OF MEGA MENU
+        // =======================================================
+        const megaMenu = new HSMegaMenu('.js-mega-menu', {
+          desktop: {
+            position: 'left'
+          }
+        })
+
+
+        // INITIALIZATION OF SHOW ANIMATIONS
+        // =======================================================
+        new HSShowAnimation('.js-animation-link')
+
+
+        // INITIALIZATION OF BOOTSTRAP VALIDATION
+        // =======================================================
+        HSBsValidation.init('.js-validate', {
+          onSubmit: data => {
+            data.event.preventDefault()
+            alert('Submited')
+          }
+        })
+
+
+        // INITIALIZATION OF GO TO
+        // =======================================================
+        new HSGoTo('.js-go-to')
+
+
+        // INITIALIZATION OF NAV SCROLLER
+        // =======================================================
+        new HsNavScroller('.js-nav-scroller')
+
+
+        // INITIALIZATION OF TEXT ANIMATION (TYPING)
+        // =======================================================
+        const typed = HSCore.components.HSTyped.init('.js-typedjs')
+      })()
+    </script>
+    <!-- JS Plugins Init. -->
+    <script>
+      (function() {
+        // INITIALIZATION OF TEXT ANIMATION (TYPING)
+        // =======================================================
+        const typed = HSCore.components.HSTyped.init('.js-typedjs')
+      })()
+    </script>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script>
+      var typed = new Typed('#typed', {
+        stringsElement: '#typed-strings', 
+        strings: [
+                    'jpg.',
+                    'jpeg.',
+                    'png.'
+                ],
+                smartBackspace: true,
+                typeSpeed: 40,
+                backSpeed: 70,
+                backDelay: 1700,
+                startDelay: 500,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+      });
+    </script>
+    {% block javascripts %}
+    {% endblock %}
+
+  {{ encore_entry_script_tags('app') }} 
+ <!-- JS Implementing Plugins -->
+<!-- bundlejs:vendor [..] -->
+
+
+<script src="{{asset('assets/vendor/hs-toggle-password/dist/js/hs-toggle-password.js')}} "></script>
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js')}} "></script>
+<!-- JS Plugins Init. -->
+<script>
+  (function() {
+    // INITIALIZATION OF TOGGLE PASSWORD
+    // =======================================================
+    new HSTogglePassword('.js-toggle-password')
+  })()
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+<script> 
+  $(document).ready( function () {
+      $('#myTable').DataTable();
+  } );
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+<!-- Mirrored from htmlstream.com/preview/space-v2.3.1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Jul 2023 09:19:48 GMT -->
 </html>

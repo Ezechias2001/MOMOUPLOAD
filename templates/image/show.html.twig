@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image{% endblock %}
+
+{% block body %}
+    {% include "__fragments/nav.html.twig" %}
+    <!-- Banner End -->
+    <div class="banner-end">
+    <div class="row align-items-md-center">
+        <div class="col-md-6 order-md-2">
+        <div class="p-5 p-md-7">
+            <!-- Heading -->
+            <div class="mb-7">
+            <span class="h2 text-cap">Details</span>
+            <p> <span class="h4"> Réseau : </span>{{image.reseau}} </p>
+            <p> <p> <span class="h4"> Montant : </span>{{image.montant}} </p>
+            <p> <p> <span class="h4"> Nom : </span>{{image.nom}} </p>
+            <p> <p> <span class="h4"> Numero : </span>{{image.numero}} </p>
+            <p> <p> <span class="h4"> Reference : </span>{{image.reference}} </p>
+            <p> <p> <span class="h4"> Motif : </span>{{image.idReference}} </p>
+            <p> <p> <span class="h4"> Date : </span>{{image.date}} </p>
+            </div>
+            <!-- End Heading -->
+        </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-6 content-space-md-1">
+        <div class="w-85 w-md-100 mx-auto me-md-auto">
+            <img class="img-fluid" src="{{ asset(image.url) }}" alt="Image Description">
+        </div>
+        </div>
+        <!-- End Col -->
+    </div>
+    <!-- End Row -->
+    </div>
+    <!-- End Banner End -->
+{% endblock %}
